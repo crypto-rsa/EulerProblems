@@ -1,15 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CLI
+namespace EulerProblems.CLI
 {
     class Program
     {
         static void Main( string[] args )
         {
+            while( true )
+            {
+                Console.Write( "Enter the number of the problem to solve (or 'q' to quit): " );
+
+                var input = Console.ReadLine();
+                if( input.ToLower() == "q" )
+                    return;
+
+                if( int.TryParse( input, out int number ))
+                {
+                    var stopWatch = System.Diagnostics.Stopwatch.StartNew();
+
+                    try
+                    {
+                        var result = ProblemRunner.Solve( number );
+
+                        Console.WriteLine( $"Solution to problem #{number} is {result} (found in {stopWatch.ElapsedMilliseconds} ms)" );
+                    }
+                    catch( NotImplementedException )
+                    {
+                        Console.WriteLine( $"ERROR: Problem #{number} is not implemented yet!" );
+                    }
+                    catch( OutOfMemoryException )
+                    {
+                        Console.WriteLine( $"ERROR: Problem #{number} is too big for my little mind!" );
+                    }
+                }
+                else
+                {
+                    Console.WriteLine( "Unknown input!" );
+                }
+
+                Console.WriteLine();
+            }
         }
     }
 }
