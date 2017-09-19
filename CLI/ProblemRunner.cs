@@ -13,6 +13,7 @@ namespace EulerProblems.CLI
             switch( number )
             {
                 case 1: return new Problem1().Solve( new SingleLimitProblemArgs( 1000 ) );
+                case 2: return new Problem2().Solve( new SingleLimitProblemArgs( 4_000_000 ) );
             }
 
             throw new NotImplementedException();
