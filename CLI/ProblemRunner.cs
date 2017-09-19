@@ -10,6 +10,11 @@ namespace EulerProblems.CLI
     {
         public static string Solve( int number )
         {
+            switch( number )
+            {
+                case 1: return new Problem1().Solve( new SingleLimitProblemArgs( 1000 ) );
+            }
+
             throw new NotImplementedException();
         }
     }
