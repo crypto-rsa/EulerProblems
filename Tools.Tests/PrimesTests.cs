@@ -16,9 +16,7 @@ namespace Tools.Tests
         [TestCase( 19, new long[] { 2, 3, 5, 7, 11, 13, 17, 19 } )]
         public void GetPrimes_ShouldReturnCorrectSequence( int upperLimit, long[] expectedValues )
         {
-            var primes = new Primes();
-
-            var values = primes.GetPrimes( upperLimit );
+            var values = Primes.GetPrimes( upperLimit );
 
             Assert.IsTrue( values.SequenceEqual( expectedValues ) );
         }
@@ -34,9 +32,7 @@ namespace Tools.Tests
         [TestCase( 10_000, false )]
         public void IsPrime_ShouldBeTrueForPrimesOnly( long number, bool expectedValue )
         {
-            var primes = new Primes();
-
-            bool value = primes.IsPrime( number );
+            bool value = Primes.IsPrime( number );
 
             Assert.AreEqual( value, expectedValue );
         }
@@ -45,9 +41,7 @@ namespace Tools.Tests
         [TestCaseSource( nameof( GetFactorTestCases ) )]
         public void Factor_ShouldReturnCorrectFactorization( long number, (long, int)[] expectedValues )
         {
-            var primes = new Primes();
-
-            var values = primes.Factor( number );
+            var values = Primes.Factor( number );
 
             Assert.IsTrue( values.SequenceEqual( expectedValues ) );
         }

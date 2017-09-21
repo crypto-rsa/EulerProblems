@@ -7,14 +7,14 @@ namespace Tools
     /// <summary>
     /// Contains methods for working with primes
     /// </summary>
-    public class Primes
+    public static class Primes
     {
         #region Fields
 
         /// <summary>
         /// A set of small primes
         /// </summary>
-        private readonly SortedSet<long> _smallPrimes = GetSmallPrimes();
+        private static readonly SortedSet<long> _smallPrimes = GetSmallPrimes();
 
         #endregion
 
@@ -86,7 +86,7 @@ namespace Tools
         /// </summary>
         /// <param name="upperLimit">The (inclusive) upper limit</param>
         /// <returns>A sequence of prime numbers up to <paramref name="upperLimit"/></returns>
-        public IEnumerable<long> GetPrimes( long upperLimit )
+        public static IEnumerable<long> GetPrimes( long upperLimit )
         {
             foreach( long prime in _smallPrimes.TakeWhile( n => n <= upperLimit ) )
             {
@@ -117,7 +117,7 @@ namespace Tools
         /// </summary>
         /// <param name="upperLimit">The (inclusive) upper limit for the sieve size</param>
         /// <returns>An array where n-th element indicates whether 'n' is divisible by any of the small primes</returns>
-        private bool[] GetSieve( long upperLimit )
+        private static bool[] GetSieve( long upperLimit )
         {
             var isComposite = new bool[upperLimit + 1];
             foreach( var p in _smallPrimes )
@@ -136,7 +136,7 @@ namespace Tools
         /// </summary>
         /// <param name="number">The number to check</param>
         /// <returns>True if <paramref name="number"/> is a prime</returns>
-        public bool IsPrime( long number )
+        public static bool IsPrime( long number )
         {
             if( number < 2 )
                 return false;
@@ -154,7 +154,7 @@ namespace Tools
         /// </summary>
         /// <param name="number">The number to factor</param>
         /// <returns>A sequence of (prime, exponent) tuples representing the prime factorization</returns>
-        public IEnumerable<(long prime, int exponent)> Factor( long number )
+        public static IEnumerable<(long prime, int exponent)> Factor( long number )
         {
             long remaining = number;
             long max = (long) Math.Ceiling( Math.Sqrt( number ) );
