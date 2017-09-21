@@ -22,6 +22,17 @@ namespace Tools.Tests
         }
 
         [Test]
+        [TestCase( 0, new long[] { } )]
+        [TestCase( 1, new long[] { 2 } )]
+        [TestCase( 5, new long[] { 2, 3, 5, 7, 11 } )]
+        public void GetAllPrimes_ShouldReturnCorrectSequence( int count, long[] expectedValues )
+        {
+            var values = Primes.GetAllPrimes().Take( count );
+
+            Assert.IsTrue( values.SequenceEqual( expectedValues ) );
+        }
+
+        [Test]
         [TestCase( 0, false )]
         [TestCase( 1, false )]
         [TestCase( 2, true )]

@@ -113,6 +113,33 @@ namespace Tools
         }
 
         /// <summary>
+        /// Returns a sequence of all primes
+        /// </summary>
+        /// <returns>The sequence of primes, lazily constructed using previously found ones</returns>
+        public static IEnumerable<long> GetAllPrimes()
+        {
+            var primes = new List<long>( _smallPrimes );
+
+            foreach( var prime in _smallPrimes )
+            {
+                yield return prime;
+            }
+
+            // check divisibility for higher numbers
+            long candidate = _smallPrimes.Last() + 1;
+            while( true )
+            {
+                if( !primes.TakeWhile( p => p * p <= candidate ).Any( p => candidate % p == 0 ) )
+                {
+                    yield return candidate;
+                    primes.Add( candidate );
+                }
+
+                candidate++;
+            }
+        }
+
+        /// <summary>
         /// Returns a prime sieve initialized with the small primes
         /// </summary>
         /// <param name="upperLimit">The (inclusive) upper limit for the sieve size</param>
