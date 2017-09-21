@@ -14,7 +14,7 @@ namespace Tools
         /// <summary>
         /// A set of small primes
         /// </summary>
-        private SortedSet<long> _smallPrimes = GetSmallPrimes();
+        private readonly SortedSet<long> _smallPrimes = GetSmallPrimes();
 
         #endregion
 
