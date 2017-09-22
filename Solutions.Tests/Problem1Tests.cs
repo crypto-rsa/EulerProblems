@@ -15,7 +15,7 @@ namespace EulerProblems.Solutions.Tests
 
             var result = problem.Solve( arguments );
 
-            Assert.AreEqual( result, expectedResult );
+            Assert.AreEqual( expectedResult, result );
         }
 
         private static object[] TestCases =

@@ -45,7 +45,7 @@ namespace Tools.Tests
         {
             bool value = Primes.IsPrime( number );
 
-            Assert.AreEqual( value, expectedValue );
+            Assert.AreEqual( expectedValue, value );
         }
 
         [Test]

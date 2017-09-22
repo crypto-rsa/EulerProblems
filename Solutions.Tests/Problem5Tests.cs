@@ -15,7 +15,7 @@ namespace EulerProblems.Solutions.Tests
 
             var result = problem.Solve( new SingleLimitProblemArgs( maxNumber ) );
 
-            Assert.AreEqual( result, expectedValue.ToString() );
+            Assert.AreEqual( expectedValue.ToString(), result );
         }
 
         #endregion

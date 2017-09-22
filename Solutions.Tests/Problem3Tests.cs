@@ -19,7 +19,7 @@ namespace EulerProblems.Solutions.Tests
 
             var result = problem.Solve( new SingleLimitProblemArgs( number ) );
 
-            Assert.AreEqual( result, expectedResult.ToString() );
+            Assert.AreEqual( expectedResult.ToString(), result );
         }
 
         #endregion

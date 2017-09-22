@@ -21,7 +21,7 @@ namespace EulerProblems.Solutions.Tests
 
             var result = problem.Solve( new SingleLimitProblemArgs( length ) );
 
-            Assert.AreEqual( result, expectedValue.ToString() );
+            Assert.AreEqual( expectedValue.ToString(), result );
         }
 
         #endregion

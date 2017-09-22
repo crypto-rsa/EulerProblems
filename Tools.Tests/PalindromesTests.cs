@@ -20,7 +20,7 @@ namespace Tools.Tests
         {
             bool value = Palindromes.IsPalindromic( number, @base );
 
-            Assert.AreEqual( value, expectedValue );
+            Assert.AreEqual( expectedValue, value );
         }
 
         #endregion

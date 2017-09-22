@@ -16,7 +16,7 @@ namespace EulerProblems.Solutions.Tests
 
             var result = problem.Solve( new SingleLimitProblemArgs( primeOrder ) );
 
-            Assert.AreEqual( result, expectedValue.ToString() );
+            Assert.AreEqual( expectedValue.ToString(), result );
         }
 
         #endregion
