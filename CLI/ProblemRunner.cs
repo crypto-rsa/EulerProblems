@@ -19,6 +19,7 @@ namespace EulerProblems.CLI
                 case 5: return new Problem5().Solve( new SingleLimitProblemArgs( 20 ) );
                 case 6: return new Problem6().Solve( new SingleLimitProblemArgs( 100 ) );
                 case 7: return new Problem7().Solve( new SingleLimitProblemArgs( 10_001 ) );
+                case 8: return new Problem8().Solve( Problem8.Arguments.FromFile( @"Input\problem8.txt", 13 ) );
             }
 
             throw new NotImplementedException();
