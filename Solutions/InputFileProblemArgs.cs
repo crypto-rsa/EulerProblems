@@ -23,7 +23,7 @@ namespace EulerProblems.Solutions
         /// </summary>
         /// <param name="path">The path to the file to read</param>
         public InputFileProblemArgs( string path )
-            : base( File.ReadAllText( path ) )
+            : base( File.ReadAllLines( path ) )
         {
             _lines = File.ReadAllLines( path );
         }

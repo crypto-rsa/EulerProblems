@@ -16,6 +16,15 @@
             Input = input;
         }
 
+        /// <summary>
+        /// Constructs an instance of the <see cref="StringInputProblemArgs"/> class with the given array of lines
+        /// </summary>
+        /// <param name="lines">The input lines (will be joined into a single string)</param>
+        public StringInputProblemArgs( string[] lines )
+        {
+            Input = string.Join( string.Empty, lines );
+        }
+
         #endregion
 
         #region Properties
