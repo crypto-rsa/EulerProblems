@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CombinatoricsTests.cs" />
     <Compile Include="PalindromesTests.cs" />
     <Compile Include="PrimesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
