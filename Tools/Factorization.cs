@@ -162,6 +162,14 @@ namespace Tools
             return new Factorization( Enumerable.Concat( factors1, factors2 ).GroupBy( p => p.Key ).Select( g => (g.Key, g.Sum( p => p.Value )) ) );
         }
 
+        public static Factorization operator /( Factorization dividend, Factorization divisor )
+        {
+            if( divisor.Factors.Any( f => f.Exponent > dividend.GetExponent( f.Prime ) ) )
+                throw new InvalidOperationException( $"{nameof( dividend ) } is not a multiple of {nameof( divisor ) }!" );
+
+            return new Factorization( dividend.Factors.Select( f => (f.Prime, f.Exponent - divisor.GetExponent( f.Prime )) ) );
+        }
+
         #endregion
     }
 }

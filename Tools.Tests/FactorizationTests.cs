@@ -73,5 +73,21 @@ namespace Tools.Tests
         {
             Assert.That( Factorization.Of( number ).GetExponent( prime ), Is.EqualTo( expected ) );
         }
+
+        [TestCase( 15, 6 )]
+        [TestCase( 22, 12 )]
+        public void OperatorDivide_ThrowsInvalidOperationException_WhenNotMultiple( long dividend, long divisor )
+        {
+            Assert.That( () => Factorization.Of( dividend ) / Factorization.Of( divisor ), Throws.InvalidOperationException );
+        }
+
+        [TestCase( 15, 3, 5 )]
+        [TestCase( 99, 1, 99 )]
+        [TestCase( 180, 4, 45 )]
+        public void OperatorDivide_ShouldReturnCorrectValue( long dividend, long divisor, long expected )
+        {
+            Assert.That( Factorization.Of( dividend ) / Factorization.Of( divisor ), Is.EqualTo( Factorization.Of( expected ) ) );
+        }
+
     }
 }
