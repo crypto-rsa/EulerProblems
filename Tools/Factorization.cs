@@ -126,6 +126,19 @@ namespace Tools
             return Factors.Aggregate( 1L, ( prev, cur ) => prev * Numbers.Pow( cur.Prime, cur.Exponent ) );
         }
 
+        /// <summary>
+        /// Returns the exponent for a prime in this factorization
+        /// </summary>
+        /// <param name="prime">The prime to get the exponent for</param>
+        /// <returns>The exponent for <paramref name="prime"/> (0 if not present in this factorization)</returns>
+        public int GetExponent( long prime )
+        {
+            if( !TryGetValue( prime, out int exponent ) )
+                return 0;
+
+            return exponent;
+        }
+
         #endregion
 
         #region Properties

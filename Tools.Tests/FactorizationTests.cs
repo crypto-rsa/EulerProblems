@@ -64,5 +64,14 @@ namespace Tools.Tests
         {
             Assert.That( new Factorization( factors ).ToNumber(), Is.EqualTo( number ) );
         }
+
+        [TestCase( 25, 5, 2 )]
+        [TestCase( 25, 3, 0 )]
+        [TestCase( 128, 2, 7 )]
+        [TestCase( 210, 11, 0 )]
+        public void GetExponent_ShouldReturnCorrectValue( long number, long prime, long expected )
+        {
+            Assert.That( Factorization.Of( number ).GetExponent( prime ), Is.EqualTo( expected ) );
+        }
     }
 }
