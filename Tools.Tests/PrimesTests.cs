@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using NUnit.Framework;
 
 namespace Tools.Tests
@@ -46,25 +45,6 @@ namespace Tools.Tests
             bool value = Primes.IsPrime( number );
 
             Assert.AreEqual( expectedValue, value );
-        }
-
-        [Test]
-        [TestCaseSource( nameof( GetFactorTestCases ) )]
-        public void Factor_ShouldReturnCorrectFactorization( long number, (long, int)[] expectedValues )
-        {
-            var values = Primes.Factor( number );
-
-            Assert.IsTrue( values.SequenceEqual( expectedValues ) );
-        }
-
-        private static IEnumerable<object[]> GetFactorTestCases()
-        {
-            yield return new object[] { 1, new(long, int)[] { } };
-            yield return new object[] { 2, new(long, int)[] { (2, 1) } };
-            yield return new object[] { 25, new(long, int)[] { (5, 2) } };
-            yield return new object[] { 30, new(long, int)[] { (2, 1), (3, 1), (5, 1) } };
-            yield return new object[] { 128, new(long, int)[] { (2, 7) } };
-            yield return new object[] { 48_841, new(long, int)[] { (13, 2), (17, 2) } };
         }
 
         #endregion

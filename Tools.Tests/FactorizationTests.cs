@@ -31,9 +31,11 @@ namespace Tools.Tests
             yield return new object[] { 2, new(long, int)[] { (2, 1) } };
             yield return new object[] { 37, new(long, int)[] { (37, 1) } };
             yield return new object[] { 48, new(long, int)[] { (2, 4), (3, 1) } };
+            yield return new object[] { 128, new(long, int)[] { (2, 7) } };
             yield return new object[] { 900, new(long, int)[] { (2, 2), (3, 2), (5, 2) } };
             yield return new object[] { 1_348, new(long, int)[] { (2, 2), (337, 1) } };
             yield return new object[] { 8_778, new(long, int)[] { (2, 1), (3, 1), (7, 1), (11, 1), (19, 1) } };
+            yield return new object[] { 48_841, new(long, int)[] { (13, 2), (17, 2) } };
         }
 
         [Test]

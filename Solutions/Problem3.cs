@@ -12,7 +12,7 @@ namespace EulerProblems.Solutions
 
         public string Solve( SingleLimitProblemArgs arguments )
         {
-            return Primes.Factor( arguments.Limit ).Last().prime.ToString();
+            return Factorization.Of( arguments.Limit ).Factors.Last().Prime.ToString();
         }
 
         #endregion

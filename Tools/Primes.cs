@@ -176,40 +176,6 @@ namespace Tools
             return GetPrimes( max ).All( p => number % p != 0 );
         }
 
-        /// <summary>
-        /// Factors a number
-        /// </summary>
-        /// <param name="number">The number to factor</param>
-        /// <returns>A sequence of (prime, exponent) tuples representing the prime factorization</returns>
-        public static IEnumerable<(long prime, int exponent)> Factor( long number )
-        {
-            long remaining = number;
-            long max = (long) Math.Ceiling( Math.Sqrt( number ) );
-
-            foreach( var prime in GetPrimes( max ) )
-            {
-                if( remaining < 2 )
-                    yield break;
-
-                int exponent = 0;
-                while( remaining % prime == 0 )
-                {
-                    remaining /= prime;
-                    exponent++;
-                }
-
-                if( exponent > 0 )
-                {
-                    yield return (prime, exponent);
-                }
-            }
-
-            if( remaining > 1 )
-            {
-                yield return (remaining, 1);
-            }
-        }
-
         #endregion
     }
 }
