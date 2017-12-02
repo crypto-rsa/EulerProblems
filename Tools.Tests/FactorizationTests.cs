@@ -28,8 +28,8 @@ namespace Tools.Tests
 
         private static IEnumerable<object[]> GetFactorizationTestCases()
         {
-            yield return new object[] { 2, new(long, int)[] { (2, 1) } };
-            yield return new object[] { 37, new(long, int)[] { (37, 1) } };
+            yield return new object[] { 2, new(long, int)[] { (2, 1), (11, 0) } };
+            yield return new object[] { 37, new(long, int)[] { (3, 0), (5, 0), (37, 1) } };
             yield return new object[] { 48, new(long, int)[] { (2, 4), (3, 1) } };
             yield return new object[] { 128, new(long, int)[] { (2, 7) } };
             yield return new object[] { 900, new(long, int)[] { (2, 2), (3, 2), (5, 2) } };

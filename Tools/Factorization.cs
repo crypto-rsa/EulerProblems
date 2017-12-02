@@ -26,7 +26,7 @@ namespace Tools
         /// <param name="factors">The factors represented as a tuples of (prime, exponent)</param>
         public Factorization( IEnumerable<(long Prime, int Exponent)> factors )
         {
-            foreach( var item in factors )
+            foreach( var item in factors.Where( t => t.Exponent > 0 ) )
             {
                 Add( item.Prime, item.Exponent );
             }
