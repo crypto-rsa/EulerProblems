@@ -46,6 +46,17 @@ namespace Tools
             return new Factorization( allPrimes.Select( p => (p, factorizations.Min( f => f.GetExponent( p ) )) ) );
         }
 
+        /// <summary>
+        /// Calculates a binomial coefficient C(n, k)
+        /// </summary>
+        /// <param name="n">The number of items to select from</param>
+        /// <param name="k">The number of items to select</param>
+        /// <returns>A binomial coefficient C(n, k), ie. the number of ways to choose <paramref name="k"/> items from <paramref name="n"/> distinct ones</returns>
+        public static Factorization Binomial( int n, int k )
+        {
+            return Factorization.OfFactorial( n ) / (Factorization.OfFactorial( k ) * Factorization.OfFactorial( n - k ));
+        }
+
         #endregion
     }
 }

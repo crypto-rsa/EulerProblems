@@ -36,6 +36,16 @@ namespace Tools.Tests
             Assert.That( Combinatorics.GCD( numbers ), Is.EqualTo( Factorization.Of( expected ) ) );
         }
 
+        [TestCase( 5, 0, 1 )]
+        [TestCase( 12, 12, 1 )]
+        [TestCase( 10, 2, 45 )]
+        [TestCase( 30, 4, 27_405 )]
+        [TestCase( 52, 12, 206_379_406_870 )]
+        public void Binomial_ShouldReturnCorrectValue( int n, int k, long expected )
+        {
+            Assert.That( Combinatorics.Binomial( n, k ), Is.EqualTo( Factorization.Of( expected ) ) );
+        }
+
         #endregion
     }
 }
