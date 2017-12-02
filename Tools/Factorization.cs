@@ -118,6 +118,14 @@ namespace Tools
         }
 
         /// <summary>
+        /// Converts the factorization to a <see cref="long"/> number
+        /// </summary>
+        /// <returns>The numeric representation of this factorization</returns>
+        public long ToNumber()
+        {
+            return Factors.Aggregate( 1L, ( prev, cur ) => prev * Numbers.Pow( cur.Prime, cur.Exponent ) );
+        }
+
         #endregion
 
         #region Properties

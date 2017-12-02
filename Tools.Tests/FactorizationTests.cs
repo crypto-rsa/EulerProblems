@@ -58,5 +58,11 @@ namespace Tools.Tests
             yield return new object[] { 5, new(long, int)[] { (2, 3), (3, 1), (5, 1) } };
             yield return new object[] { 25, new(long, int)[] { (2, 22), (3, 10), (5, 6), (7, 3), (11, 2), (13, 1), (17, 1), (19, 1), (23, 1) } };
         }
+
+        [TestCaseSource( nameof( GetFactorizationTestCases ) )]
+        public void ToNumber_ShouldReturnCorrectValue( long number, IEnumerable<(long, int)> factors )
+        {
+            Assert.That( new Factorization( factors ).ToNumber(), Is.EqualTo( number ) );
+        }
     }
 }
