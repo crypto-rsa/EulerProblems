@@ -26,6 +26,16 @@ namespace Tools.Tests
             Assert.That( Combinatorics.Factorial( number ), Is.EqualTo( expected ) );
         }
 
+        [TestCase( new long[] { 2, 5 }, 1 )]
+        [TestCase( new long[] { 6, 15 }, 3 )]
+        [TestCase( new long[] { 6, 10, 15, }, 1 )]
+        [TestCase( new long[] { 99, 121 }, 11 )]
+        [TestCase( new long[] { 75, 243, 231 }, 3 )]
+        public void GCD_ShouldReturnCorrectValue( long[] numbers, long expected )
+        {
+            Assert.That( Combinatorics.GCD( numbers ), Is.EqualTo( Factorization.Of( expected ) ) );
+        }
+
         #endregion
     }
 }

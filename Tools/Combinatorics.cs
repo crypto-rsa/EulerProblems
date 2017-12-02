@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Tools
 {
@@ -23,6 +25,25 @@ namespace Tools
                 return 1;
 
             return number * Factorial( number - 1 );
+        }
+
+        /// <summary>
+        /// Calculates the greatest common divisor of a collection of numbers
+        /// </summary>
+        /// <param name="numbers">The numbers to find the GCD of</param>
+        /// <returns>The factorization of the GCD of <paramref name="numbers"/></returns>
+        public static Factorization GCD( params long[] numbers )
+        {
+            if( numbers == null )
+                throw new ArgumentNullException( nameof( numbers ) );
+
+            if( numbers.Length < 1 )
+                throw new ArgumentException( "At least one number is required for finding the greatest common divisor!", nameof( numbers ) );
+
+            var factorizations = numbers.Select( n => Factorization.Of( n ) ).ToList();
+            var allPrimes = new HashSet<long>( factorizations.SelectMany( d => d.Keys ) );
+
+            return new Factorization( allPrimes.Select( p => (p, factorizations.Min( f => f.GetExponent( p ) )) ) );
         }
 
         #endregion
