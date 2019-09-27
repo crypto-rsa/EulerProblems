@@ -33,6 +33,30 @@
             return result;
         }
 
+        /// <summary>
+        /// Returns a Fibonacci number
+        /// </summary>
+        /// <param name="n">The index of the Fibonacci number to return</param>
+        /// <returns>F_n (1 for n = 1 and 2, etc.)</returns>
+        public static long Fib(long n)
+        {
+            if (n < 1)
+                throw new System.ArgumentOutOfRangeException(nameof(n), "The value must be greater or equal to 1!");
+
+            if (n == 1 || n == 2)
+                return 1;
+
+            var array = new long[n + 1];
+            array[1] = array[2] = 1;
+
+            for (int i = 3; i <= n; i++)
+            {
+                array[i] = array[i - 1] + array[i - 2];
+            }
+
+            return array[n];
+        }
+
         #endregion
     }
 }

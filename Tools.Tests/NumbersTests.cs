@@ -14,5 +14,15 @@ namespace Tools.Tests
         {
             Assert.That( Numbers.Pow( @base, exponent ), Is.EqualTo( expected ) );
         }
+
+        [TestCase( 1, 1)]
+        [TestCase( 2, 1)]
+        [TestCase( 3, 2)]
+        [TestCase( 7, 13)]
+        [TestCase( 17, 1597)]
+        public void Fib_ShouldReturnCorrectValue( long n, long expected )
+        {
+            Assert.That(Numbers.Fib(n), Is.EqualTo(expected));
+        }
     }
 }
