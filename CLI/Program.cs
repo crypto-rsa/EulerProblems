@@ -8,10 +8,10 @@ namespace EulerProblems.CLI
         {
             while( true )
             {
-                Console.Write( "Enter the number of the problem to solve (or 'q' to quit): " );
+                Console.Write("Enter the number of the problem to solve (or 'q' to quit): ");
 
                 var input = Console.ReadLine();
-                if( input.ToLower() == "q" )
+                if (string.Equals(input, "q", StringComparison.OrdinalIgnoreCase))
                     return;
 
                 TryRunProblem(input);
