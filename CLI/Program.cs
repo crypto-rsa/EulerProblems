@@ -14,31 +14,36 @@ namespace EulerProblems.CLI
                 if( input.ToLower() == "q" )
                     return;
 
-                if( int.TryParse( input, out int number ))
-                {
-                    var stopWatch = System.Diagnostics.Stopwatch.StartNew();
-
-                    try
-                    {
-                        var result = ProblemRunner.Solve( number );
-
-                        Console.WriteLine( $"Solution to problem #{number} is {result} (found in {stopWatch.ElapsedMilliseconds} ms)" );
-                    }
-                    catch( NotImplementedException )
-                    {
-                        Console.WriteLine( $"ERROR: Problem #{number} is not implemented yet!" );
-                    }
-                    catch( OutOfMemoryException )
-                    {
-                        Console.WriteLine( $"ERROR: Problem #{number} is too big for my little mind!" );
-                    }
-                }
-                else
-                {
-                    Console.WriteLine( "Unknown input!" );
-                }
+                TryRunProblem(input);
 
                 Console.WriteLine();
+            }
+        }
+
+        private static void TryRunProblem(string input)
+        {
+            if (int.TryParse(input, out int number))
+            {
+                var stopWatch = System.Diagnostics.Stopwatch.StartNew();
+
+                try
+                {
+                    var result = ProblemRunner.Solve(number);
+
+                    Console.WriteLine($"Solution to problem #{number} is {result} (found in {stopWatch.ElapsedMilliseconds} ms)");
+                }
+                catch (NotImplementedException)
+                {
+                    Console.WriteLine($"ERROR: Problem #{number} is not implemented yet!");
+                }
+                catch (OutOfMemoryException)
+                {
+                    Console.WriteLine($"ERROR: Problem #{number} is too big for my little mind!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Unknown input!");
             }
         }
     }
