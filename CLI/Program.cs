@@ -6,6 +6,17 @@ namespace EulerProblems.CLI
     {
         static void Main( string[] args )
         {
+            if( args.Length >= 2 && args[0] == "-p" )
+            {
+                Console.WriteLine($"Running problem {args[1]}");
+
+                TryRunProblem(args[1]);
+
+                Console.ReadKey();
+
+                return;
+            }
+
             while( true )
             {
                 Console.Write("Enter the number of the problem to solve (or 'q' to quit): ");
