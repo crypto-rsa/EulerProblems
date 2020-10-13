@@ -30,6 +30,7 @@ namespace EulerProblems.CLI
                 [7] = () => new Problem7().Solve( new SingleLimitProblemArgs( 10_001 ) ),
                 [8] = () => new Problem8().Solve( Problem8.Arguments.FromFile( @"Input\problem8.txt", 13 ) ),
                 [143] = () => new Problem143().Solve(new SingleLimitProblemArgs(120_000)),
+                [144] = () => new Problem144().Solve(EmptyProblemArgs.Instance),
                 [206] = () => new Problem206().Solve( new Problem206.Arguments(0, -1, 9, -1, 8, -1, 7, -1, 6, -1, 5, -1, 4, -1, 3, -1, 2, -1, 1) ),
                 [209] = () => new Problem209().Solve(EmptyProblemArgs.Instance),
                 [679] = () => new Problem679().Solve(new SingleLimitProblemArgs(30)),
