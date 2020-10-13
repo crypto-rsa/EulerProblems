@@ -1,4 +1,6 @@
-﻿namespace Tools
+﻿using System;
+
+namespace Tools
 {
     /// <summary>
     /// Contains methods for number manipulation
@@ -56,6 +58,20 @@
 
             return array[n];
         }
+
+        /// <summary>
+        /// Solves a quadratic equation
+        /// </summary>
+        /// <param name="a">The quadratic factor</param>
+        /// <param name="b">The linear factor</param>
+        /// <param name="c">The constant factor</param>
+        /// <returns>An array of real solutions of <paramref name="a"/>x^2 + <paramref name="b"/>x + <paramref name="c"/></returns>
+        public static double[] SolveQuadratic(double a, double b, double c) => (b * b - 4 * a * c) switch
+        {
+            double d when d > 0.0 => new double[] { (-b + Math.Sqrt(d)) / (2 * a), (-b - Math.Sqrt(d)) / (2 * a) },
+            double d when d == 0.0 => new double[] { (-b + Math.Sqrt(d)) / (2 * a) },
+            _ => Array.Empty<double>(),
+        };
 
         #endregion
     }
