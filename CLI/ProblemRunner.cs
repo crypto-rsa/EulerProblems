@@ -36,6 +36,7 @@ namespace EulerProblems.CLI
                 [206] = () => new Problem206().Solve(new Problem206.Arguments(0, -1, 9, -1, 8, -1, 7, -1, 6, -1, 5, -1, 4, -1, 3, -1, 2, -1, 1)),
                 [209] = () => new Problem209().Solve(EmptyProblemArgs.Instance),
                 [679] = () => new Problem679().Solve(new SingleLimitProblemArgs(30)),
+                [766] = () => new Problem766().Solve(Problem766.Arguments.CreatePuzzleInstance()),
             };
         }
 
