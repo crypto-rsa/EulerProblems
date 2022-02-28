@@ -12,8 +12,6 @@ namespace EulerProblems.CLI
 
                 TryRunProblem(args[1]);
 
-                Console.ReadKey();
-
                 return;
             }
 
