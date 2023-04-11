@@ -40,6 +40,7 @@ namespace EulerProblems.CLI
                 [679] = () => new Problem679().Solve(new SingleLimitProblemArgs(30)),
                 [766] = () => new Problem766().Solve(Problem766.Arguments.CreatePuzzleInstance()),
                 [828] = () => new Problem828().Solve(new InputFileProblemArgs(@"Input\problem828.txt")),
+                [836] = () => new Problem836().Solve(EmptyProblemArgs.Instance),
             };
         }
 
